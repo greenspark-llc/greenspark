@@ -2,23 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Get Your Price | GreenSpark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page - Lawn Care</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tooltip:hover .tooltip-text {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    /* iOS notch padding */
+    :root { --safe-top: env(safe-area-inset-top); }
+  </style>
 </head>
-<body class="bg-white text-gray-900">
 
-<!-- Top Navigation -->
-<header class="fixed top-0 left-0 w-full z-50 bg-white shadow flex items-center justify-between px-10 py-4">
-  <a href="/" class="text-4xl font-semibold text-green-600 hover:opacity-90 transition">
-    Green<span class="text-green-500">Spark</span>
-  </a>  
-  <div class="flex items-center gap-4 text-base">
-    <a href="tel:1-310-528-6134" class="text-green-600 font-medium">1-310-528-6134</a>
-    <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-600 hover:bg-green-50">Sign In</a>
-    <a href="#" class="bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full">Commercial Services</a>
-  </div>
-</header>
+<body class="bg-white font-sans overflow-x-hidden">
+  <!-- ===== Fixed Header (Responsive) ===== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="h-14 md:h-16 flex items-center justify-between" style="padding-top: var(--safe-top)">
+        <!-- Brand -->
+        <a href="/" class="text-2xl md:text-3xl font-semibold text-green-600 hover:opacity-90 transition">
+          Green<span class="text-green-500">Spark</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-4 text-base">
+          <a href="tel:1-310-528-6134" class="text-green-600 font-medium">1-310-528-6134</a>
+          <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-600 hover:bg-green-50">Sign In</a>
+          <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-600 text-black px-4 py-2 rounded-full">Get an Instant Price</a>
+          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full">Commercial Services</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-green-600 text-green-700">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileNav" class="md:hidden hidden border-t bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="tel:1-310-528-6134" class="text-green-700 font-medium">1-310-528-6134</a>
+        <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-700 text-center">Sign In</a>
+        <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full text-center">Get an Instant Price</a>
+        <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-center">Commercial Services</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Push content below fixed header (matches h-14 / h-16) -->
+  <div class="pt-[3.5rem] md:pt-16"></div>
 
 <!-- Main Content -->
 <main class="max-w-4xl mx-auto pt-28 pb-16 px-4 md:px-6">
