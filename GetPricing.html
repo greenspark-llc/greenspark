@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your Price | GreenSpark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white shadow flex items-center justify-between px-10 py-4">
+  <a href="/" class="text-4xl font-semibold text-green-600 hover:opacity-90 transition">
+    Green<span class="text-green-500">Spark</span>
+  </a>  
+  <div class="flex items-center gap-4 text-base">
+    <a href="tel:1-424-223-8200" class="text-green-600 font-medium">1-424-223-8200</a>
+    <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-600 hover:bg-green-50">Sign In</a>
+    <a href="#" class="bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full">Commercial Services</a>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto pt-28 pb-16 px-4 md:px-6">
+  <h1 class="text-3xl md:text-4xl font-semibold mb-4 text-gray-900">Let’s get started! Enter your address for the most accurate pricing.</h1>
+  <p class="text-gray-600 mb-8 text-base">We use your address to tailor your quote and confirm availability in your area.</p>
+
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScUu5GSf8zKCXH8ueK5iWhyyFliDMwv9nVYAWVQ-On4OSw8CA/formResponse"
+        method="POST" target="hidden_iframe" onsubmit="submitted=true" id="quoteForm" class="space-y-6 bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+      <input name="entry.1712045475" type="text" placeholder="John Doe" class="w-full p-3 border border-gray-300 rounded-lg" required />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+      <input name="entry.1976878309" type="text" placeholder="1234 Maple St" class="w-full p-3 border border-gray-300 rounded-lg" required />
+    </div>
+
+    <div class="flex gap-4">
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+        <input name="entry.1854714771" type="text" placeholder="Los Angeles" class="w-full p-3 border border-gray-300 rounded-lg" required />
+      </div>
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Zip Code</label>
+        <input id="zipInput" name="entry.714653534" type="text" placeholder="90001" class="w-full p-3 border border-gray-300 rounded-lg" required />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+      <input name="entry.529042821" type="email" placeholder="you@email.com" class="w-full p-3 border border-gray-300 rounded-lg" required />
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+      <input name="entry.2075421705" type="tel" placeholder="(123) 456-7890" class="w-full p-3 border border-gray-300 rounded-lg" required />
+    </div>
+
+    <!-- WHY WE ASK Section -->
+    <p class="text-sm font-semibold text-gray-800 mb-2">Why do we need this?</p>
+    <ul class="space-y-3 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <span>
+          <svg class="w-5 h-5 text-white bg-green-600 rounded-full p-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        To measure your lawn size for accurate pricing
+      </li>
+      <li class="flex items-start gap-2">
+        <span>
+          <svg class="w-5 h-5 text-white bg-green-600 rounded-full p-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        To tailor treatments to your local climate
+      </li>
+      <li class="flex items-start gap-2">
+        <span>
+          <svg class="w-5 h-5 text-white bg-green-600 rounded-full p-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        To confirm service availability in your area
+      </li>
+    </ul>
+    
+
+    <button type="submit" class="w-full bg-green-400 text-black py-3 rounded-lg font-medium hover:bg-green-500 transition">
+      Get My Price
+    </button>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+  </form>
+
+  <p class="mt-6 text-sm text-gray-500">We'll send you a copy of your personalized quote. The price will be locked in for 30 days.</p>
+</main>
+
+<!-- Optional Footer -->
+<footer class="text-sm text-gray-600 text-center py-4 border-t border-gray-200">
+  Need help? <a href="tel:1-424-223-8200" class="text-green-600 font-medium">Call Now</a>
+</footer>
+
+<script>
+  let submitted = false;
+
+  document.getElementById("quoteForm").addEventListener("submit", function () {
+    submitted = true;
+  });
+
+  window.addEventListener("load", function () {
+    const iframe = document.getElementById("hidden_iframe");
+    iframe.onload = function () {
+      if (submitted) {
+        const zip = document.getElementById("zipInput").value.trim();
+        if (zip) {
+          window.location.href = `/quote.html?zip=${encodeURIComponent(zip)}`;
+        } else {
+          window.location.href = "/quote.html";
+        }
+      }
+    };
+  });
+</script>
+
+</body>
+</html>

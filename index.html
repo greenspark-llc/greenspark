@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page - Lawn Care</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tooltip:hover .tooltip-text {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    /* iOS notch padding */
+    :root { --safe-top: env(safe-area-inset-top); }
+  </style>
+</head>
+
+<body class="bg-white font-sans overflow-x-hidden">
+  <!-- ===== Fixed Header (Responsive) ===== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="h-14 md:h-16 flex items-center justify-between" style="padding-top: var(--safe-top)">
+        <!-- Brand -->
+        <a href="/" class="text-2xl md:text-3xl font-semibold text-green-600 hover:opacity-90 transition">
+          Green<span class="text-green-500">Spark</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-4 text-base">
+          <a href="tel:1-424-223-8200" class="text-green-600 font-medium">1-424-223-8200</a>
+          <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-600 hover:bg-green-50">Sign In</a>
+          <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-600 text-black px-4 py-2 rounded-full">Get an Instant Price</a>
+          <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full">Commercial Services</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-green-600 text-green-700">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileNav" class="md:hidden hidden border-t bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="tel:1-424-223-8200" class="text-green-700 font-medium">1-424-223-8200</a>
+        <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-700 text-center">Sign In</a>
+        <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full text-center">Get an Instant Price</a>
+        <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-center">Commercial Services</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Push content below fixed header (matches h-14 / h-16) -->
+  <div class="pt-[3.5rem] md:pt-16"></div>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="text-left py-20 px-4 md:px-20">
+    <h1 class="text-5xl md:text-6xl font-light text-green-600 leading-snug">
+      Experience The Future of Lawn Care:<br />
+      Quiet, Clean, and Green.
+    </h1>
+    <p class="text-left mt-4 text-2xl text-green-800 max-w-xl">
+      Luxury lawns without the noise or fumes. 
+    </p>
+    <div class="mt-8">
+      <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-500 text-black text-lg font-semibold px-6 py-3 rounded-full shadow-lg">
+        SEE MY PRICE →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Banner with Clickable Review Badge ===== -->
+  <section class="relative w-full h-[310px]">
+    <img 
+      src="realistic photo.png" 
+      alt="Eco yard with EV truck" 
+      class="w-full h-full object-cover"
+    />
+    <a
+      href="https://www.google.com/search?sca_esv=ae17101597266434&sxsrf=AE3TifNtv9ajWxQrvaJCwfI67Rz7rn4Tjg:1752278371786&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-qBBTgI6LZ2_KFwG6wNPSlMHaEAx7gSEUfTV9g-1xiS2A9IUkswtaJ1M_0y4ZhcDyyX9p54ztGRPyIEKvxNvEb_wTYJ&q=GreenSpark+Reviews&sa=X&ved=2ahUKEwjFoJfPgbaOAxXvJkQIHftADnQQ0bkNegQIIBAD&biw=1420&bih=777&dpr=1"
+      target="_blank" rel="noopener noreferrer"
+      class="absolute bottom-4 right-6 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 text-sm font-medium text-white hover:bg-green-800 transition"
+    >
+      <span>4.8/5</span>
+      <span class="text-gray-300">|</span>
+      <span>1,000+ reviews</span>
+      <span class="text-gray-300">|</span>
+      <span class="text-yellow-300 text-base">★★★★★</span>
+    </a>
+  </section>
+  <!-- (Removed the three stray </div></div></section> that were here) -->
+
+  <!-- ===== How It Works ===== -->
+  <section class="w-full bg-white pt-8 py-12">
+    <div class="max-w-6xl mx-auto text-center px-1">
+      <h2 class="text-3xl font-medium mb-2">How GreenSpark Works</h2>
+      <p class="text-lg font-medium text-green-600 mb-6">Get started in under 5 minutes</p>
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-4">
+
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-2xl font-medium mb-2">1</div>
+          <img src="view_your_price_icon.png" alt="View Pricing" class="w-20 h-20 md:w-28 md:h-28 mb-3" />
+          <p class="text-base font-medium">View Your Pricing</p>
+        </div>
+
+        <div class="hidden md:block h-1 bg-green-400 w-24"></div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-2xl font-medium mb-2">2</div>
+          <img src="choose_service_date_icon.png" alt="Choose Date" class="w-20 h-20 md:w-28 md:h-28 mb-3" />
+          <p class="text-base font-medium">Choose Your Service Date</p>
+        </div>
+
+        <div class="hidden md:block h-1 bg-green-400 w-24"></div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center text-center">
+          <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-2xl font-medium mb-2">3</div>
+          <img src="let_pros_work_icon.png" alt="Let the pros do the work" class="w-20 h-20 md:w-28 md:h-28 mb-3" />
+          <p class="text-base font-medium">Sit Back and Let Our Pros do The Work</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why GreenSpark ===== -->
+  <section class="w-full bg-white py-16 px-2 md:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8">Why GreenSpark?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left text-gray-800">
+        <!-- Item 1 -->
+        <div class="flex items-start space-x-3 relative group">
+          <img src="icons/noise_free_icon.png" alt="Noise-Free Serenity" class="w-10 h-10 mt-1 shrink-0" />
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Noise-Free Serenity</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  Electric equipment averages 75 dB — about 4x quieter than gas mowers. That means less disruption for your home, pets, and neighbors.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Our all-electric equipment eliminates the loud, disruptive noise of gas machines, preserving the tranquility of your home and neighborhood.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="flex items-start space-x-3 relative group">
+          <img src="icons/breathe_easier.png" alt="Breathe Easier, Live Healthier" class="w-10 h-10 mt-1 shrink-0" />
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Breathe Easier, Live Healthier</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  Traditional gas mowers emit as much pollution per hour as driving a car 300 miles. Our gear is 100% emission-free.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Say goodbye to harmful exhaust fumes. Our zero-emission equipment means cleaner air for your family, pets, and the environment.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="flex items-start space-x-3 relative group">
+          <span class="text-yellow-400 text-3xl">🌎</span>
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Truly Green Landscaping</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  Every GreenSpark visit cuts your carbon footprint, supports soil health, and contributes to LA’s clean energy goals.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Committed to a sustainable Los Angeles. By choosing us, you're directly reducing your carbon footprint, contributing to healthier communities and supporting a greener future for our city.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="flex items-start space-x-3 relative group">
+          <span class="text-yellow-400 text-3xl">⚡️</span>
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Precision & Power, Electrified</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  Our commercial-grade equipment is built for performance—delivering pro results without the gas and oil.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Don't let "electric" fool you - our professional-grade equipment delivers superior results, ensuring your landscape is impeccably maintained with powerful, efficient performance.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="flex items-start space-x-3 relative group">
+          <img src="icons/licensed.png" alt="Licensed, Insured, Bonded" class="w-10 h-10 mt-1 shrink-0" />
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Licensed, Insured, Bonded</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  We’re fully certified and protected—ensuring every crew member and every property is covered with zero risk to you.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Your safety and peace of mind come first—our excellence is backed by full professional coverage.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="flex items-start space-x-3 relative group">
+          <span class="text-yellow-400 text-3xl">❤️</span>
+          <div>
+            <div class="flex items-center gap-1">
+              <h3 class="font-semibold mb-1">Quality Service</h3>
+              <div class="relative tooltip cursor-pointer">
+                <span class="text-xs text-gray-500 border border-gray-300 rounded-full px-1">i</span>
+                <div class="tooltip-text absolute left-4 top-6 bg-white border border-gray-300 text-xs text-gray-700 rounded-md shadow px-3 py-2 w-64 z-10 opacity-0 invisible transform -translate-y-1 transition-all duration-200">
+                  With 30+ years of experience and a satisfaction guarantee, we’re here to make sure your outdoor space stays perfect.
+                </div>
+              </div>
+            </div>
+            <p class="text-sm">Backed by 30 years of expertise and a 100% satisfaction guarantee, we cover every service to ensure you're fully taken care of.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-600 text-black font-medium px-6 py-3 rounded-full transition duration-300">
+          Get Your Free, No-Obligation Quote Today!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reviews Slider ===== -->
+  <section class="bg-black py-12 px-4 md:px-20 overflow-hidden">
+    <div class="relative max-w-7xl mx-auto overflow-hidden">
+      <div id="reviewSlides" class="flex transition-transform duration-700 ease-in-out">
+        <!-- Slide 1 -->
+        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">Before</p>
+            <img src="IMG_7759.jpeg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">After</p>
+            <img src="IMG_7758.jpeg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col justify-center px-4 text-white">
+            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
+            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
+            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">Before</p>
+            <img src="before2.jpg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">After</p>
+            <img src="after2.jpg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col justify-center px-4 text-white">
+            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
+            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
+            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">Before</p>
+            <img src="before3.jpg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <p class="text-sm text-white mb-2">After</p>
+            <img src="after3.jpg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+          </div>
+          <div class="flex flex-col justify-center px-4 text-white">
+            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
+            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
+            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <div class="flex justify-center mt-10 gap-4">
+        <button onclick="goToPreviousSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button onclick="goToNextSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slider JS -->
+  <script>
+    // mobile nav toggle
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mobileNav');
+    btn?.addEventListener('click', () => nav.classList.toggle('hidden'));
+
+    // reviews slider
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('#reviewSlides > div').length;
+
+    function goToSlide(index) {
+      const slider = document.getElementById('reviewSlides');
+      const width = slider.offsetWidth;
+      currentSlide = index;
+      slider.style.transform = `translateX(-${width * index}px)`;
+    }
+    function goToPreviousSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      goToSlide(currentSlide);
+    }
+    function goToNextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+    setInterval(goToNextSlide, 8000);
+    window.addEventListener('resize', () => goToSlide(currentSlide));
+  </script>
+
+  <!-- ===== Premium Guarantee ===== -->
+  <section class="bg-white py-16 px-6 md:px-20 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex justify-center items-center gap-6 mb-6 flex-wrap text-green-600">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span class="text-md font-medium">Licensed</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span class="text-md font-medium">Bonded</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span class="text-md font-medium">Insured</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span class="text-md font-medium">30+ Years of Experience</span>
+        </div>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">100% Satisfaction Guarantee</h2>
+      <p class="text-lg md:text-xl font-light max-w-3xl mx-auto mb-8">
+        If you’re ever unsatisfied, we’ll come back between services—at no extra charge—until your yard looks exactly the way you want it. Your peace of mind is our priority.
+      </p>
+      <a href="/GetPricing.html" class="inline-block bg-green-400 hover:bg-green-500 text-black text-lg font-semibold py-3 px-6 rounded-full shadow-md transition">
+        Get Your Free Estimate
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>

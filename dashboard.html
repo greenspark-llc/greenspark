@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | GreenSpark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 text-gray-900 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow fixed top-0 left-0 w-full z-50 flex items-center justify-between px-10 py-4">
+    <a href="/" class="text-4xl font-semibold text-green-600 hover:opacity-90 transition">
+        Green<span class="text-green-500">Spark</span>
+      </a>      
+    <button id="logout-btn"
+            class="text-sm bg-green-400 hover:bg-green-500 text-black font-medium px-4 py-2 rounded-full transition">
+      Logout
+    </button>
+  </header>
+
+  <!-- Dashboard Content -->
+  <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto text-center">
+    <h1 class="text-3xl font-bold text-green-700 mb-4">Welcome to your Dashboard</h1>
+    <p class="text-gray-700 mb-8">Manage your services, view upcoming appointments, and explore eco-friendly upgrades.</p>
+
+    <!-- Placeholder Section -->
+    <div class="bg-white border border-gray-200 rounded-xl shadow p-6 text-left">
+      <h2 class="text-xl font-semibold text-green-600 mb-2">Your Services</h2>
+      <p class="text-gray-600">You don’t have any services scheduled yet.</p>
+      <button class="mt-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+        Book a New Service
+      </button>
+    </div>
+  </main>
+
+  <!-- Supabase Script for Logout (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const client = window.supabase.createClient(
+      'https://phimqxgznvtgrwavtcgi.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBoaW1xeGd6bnZ0Z3J3YXZ0Y2dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIxODAwNjAsImV4cCI6MjA2Nzc1NjA2MH0.3_9fxkYR22PVPkzfTnPUtp-0OWvSsH-3msVHnnRkysI'
+    );
+
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      await client.auth.signOut();
+      window.location.href = "sign_in.html";
+    });
+  </script>
+
+</body>
+</html>
