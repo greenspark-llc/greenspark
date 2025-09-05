@@ -505,7 +505,10 @@
       };
 
       localStorage.setItem("greenspark_selection", JSON.stringify(selection));
-      window.location.href = "/schedule.html";
+      const zipFromUrl = new URLSearchParams(window.location.search).get('zip');
+      const zipQS = zipFromUrl ? `?zip=${encodeURIComponent(zipFromUrl)}` : '';
+      window.location.href = `/schedule.html${zipQS}`;
+;
     }
   </script>
 
