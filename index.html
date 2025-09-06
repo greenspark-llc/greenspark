@@ -580,58 +580,120 @@
   </div>
 </div>
 
+<!-- ===== Desktop Call/Text Floating Pill ===== -->
+<div id="ctaDesk"
+     class="hidden md:flex fixed bottom-6 right-6 z-[60] items-center gap-2
+            bg-black/70 text-white rounded-full shadow-lg backdrop-blur
+            px-2 py-2 border border-white/10 translate-y-0 opacity-0 pointer-events-none
+            transition-all duration-300">
+  <!-- Call -->
+  <a href="tel:1-310-528-6134"
+     class="inline-flex items-center gap-2 bg-green-400 text-black font-normal
+            px-3 py-2 rounded-full hover:bg-green-500 opacity-90">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h1.28a2 2 0 011.94 1.515l.57 2.28a2 2 0 01-.45 1.86l-1.2 1.2a16 16 0 006.4 6.4l1.2-1.2a2 2 0 011.86-.45l2.28.57A2 2 0 0121 18.72V20a2 2 0 01-2 2h-.25C9.268 22 2 14.732 2 6.25V6a2 2 0 011-1z"/>
+    </svg>
+    Call Us
+  </a>
+
+  <!-- Text -->
+  <a href="sms:+13105286134"
+     class="inline-flex items-center gap-2 bg-black text-white font-normal
+            px-3 py-2 rounded-full hover:bg-green-400">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 10h8M8 14h5M21 12c0 4.418-4.03 8-9 8-1.09 0-2.13-.17-3.09-.49L3 20l1.5-3.6A7.94 7.94 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+    </svg>
+    Text Us
+  </a>
+
+  <!-- Close -->
+  <button id="ctaDeskClose"
+          class="ml-1 inline-flex items-center justify-center w-8 h-8 rounded-full
+                 hover:bg-white/10" aria-label="Dismiss">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+</div>
+
+
 
 <script>
   (function () {
-    const bar = document.getElementById('ctaBar');
-    const spacer = document.getElementById('ctaSpacer');
-    const closeBtn = document.getElementById('ctaClose');
+    const bar = document.getElementById('ctaBar');           // mobile
+    const spacer = document.getElementById('ctaSpacer');      // mobile
+    const closeBtn = document.getElementById('ctaClose');     // mobile
 
-    const LS_KEY = 'gs_cta_dismissed_until';
+    const desk = document.getElementById('ctaDesk');          // desktop
+    const deskClose = document.getElementById('ctaDeskClose');
+
+    const LS_KEY = 'gs_cta_dismissed_until_v2';
+    // DEV: add #showcta to URL to clear the timer and reveal immediately
+    if (location.hash === '#showcta') {
+      localStorage.removeItem(LS_KEY);
+      setTimeout(() => { showDesk(); }, 50);
+    }
+
 
     function isDismissed() {
       const until = localStorage.getItem(LS_KEY);
       return until && Date.now() < Number(until);
     }
 
+    // ---- MOBILE (unchanged) ----
     function showBar() {
-      bar.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
-      bar.classList.add('opacity-100');
-      // ensure spacer only affects mobile (bar is floating on desktop)
-      spacer.classList.add('md:h-0');
+      bar?.classList.remove('translate-y-full','opacity-0','pointer-events-none');
+      bar?.classList.add('opacity-100');
+      spacer?.classList.add('md:h-0');
     }
-
     function hideBar() {
-      bar.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+      bar?.classList.add('translate-y-full','opacity-0','pointer-events-none');
     }
-
-    // Slide up after the user scrolls a bit and if not dismissed
     let revealed = false;
     function onScroll() {
       if (revealed || isDismissed()) return;
-      if (window.scrollY > 240) {
-        revealed = true;
-        showBar();
-      }
+      if (window.scrollY > 240) { revealed = true; showBar(); }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Also reveal after a small delay (helps short pages)
-    setTimeout(() => {
-      if (!revealed && !isDismissed()) {
-        revealed = true;
-        showBar();
-      }
-    }, 1800);
-
-    // Dismiss for 10 minutes
+    setTimeout(() => { if (!revealed && !isDismissed()) { revealed = true; showBar(); } }, 1800);
     closeBtn?.addEventListener('click', () => {
       const tenMinutes = 10 * 60 * 1000;
       localStorage.setItem(LS_KEY, String(Date.now() + tenMinutes));
       hideBar();
+      hideDesk(); // ensure both hide
+    });
+
+    // ---- DESKTOP (new) ----
+    function showDesk() {
+      // only show on md+; Tailwind handles display via classes
+      desk?.classList.remove('opacity-0','pointer-events-none');
+      desk?.classList.add('opacity-100');
+    }
+    function hideDesk() {
+      desk?.classList.add('opacity-0','pointer-events-none');
+    }
+
+    // reveal desktop pill after a small delay if not dismissed
+    setTimeout(() => {
+      if (!isDismissed()) showDesk();
+    }, 1400);
+
+    // also reveal when user scrolls a bit on desktop
+    window.addEventListener('scroll', () => {
+      if (!isDismissed()) showDesk();
+    }, { passive: true });
+
+    deskClose?.addEventListener('click', () => {
+      const tenMinutes = 10 * 60 * 1000;
+      localStorage.setItem(LS_KEY, String(Date.now() + tenMinutes));
+      hideDesk();
+      hideBar(); // hide mobile too
     });
   })();
 </script>
+
 
 
 </body>
