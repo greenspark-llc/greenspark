@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commercial Services | GreenSpark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Simple Header -->
+  <header class="border-b bg-white/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="/" class="text-2xl font-semibold text-green-600">Green<span class="text-green-500">Spark</span></a>
+      <a href="tel:1-310-528-6134" class="hidden sm:inline-flex text-green-700 font-medium">1-310-528-6134</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-4 py-10 md:py-14">
+      <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">
+        Commercial Services
+      </h1>
+      <p class="mt-2 text-gray-600">
+        Quiet, clean, and reliable landscaping for businesses, properties, and communities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form Card -->
+  <main class="max-w-5xl mx-auto px-4 pb-16">
+    <div id="formCard" class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 md:p-8">
+      <h2 class="text-xl font-semibold">Tell us about your property</h2>
+      <p class="mt-1 text-sm text-gray-600">We’ll reply within one business day.</p>
+
+      <form id="commercialForm" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"
+            method="POST" action="https://formspree.io/f/mdklpqpn">
+        <!-- Contact -->
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">Full Name <span class="text-red-500">*</span></label>
+          <input name="name" type="text" required placeholder="Jane Smith"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">Company</label>
+          <input name="company" type="text" placeholder="Company / HOA / Community"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">Email <span class="text-red-500">*</span></label>
+          <input name="email" type="email" required placeholder="you@company.com"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">Phone <span class="text-red-500">*</span></label>
+          <input name="phone" type="tel" required placeholder="(123) 456-7890"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <!-- Location -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Service Address <span class="text-red-500">*</span></label>
+          <input name="address" type="text" required placeholder="1234 Maple St"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">City <span class="text-red-500">*</span></label>
+          <input name="city" type="text" required placeholder="Los Angeles"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">ZIP <span class="text-red-500">*</span></label>
+          <input name="zip" type="text" required placeholder="90001"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <!-- Type -->
+        <div class="md:col-span-1">
+          <label class="block text-sm font-medium mb-1">I’m a… <span class="text-red-500">*</span></label>
+          <select id="bizType" name="business_type" required
+                  class="w-full rounded-lg border border-gray-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-green-400">
+            <option value="">Select one</option>
+            <option>Business</option>
+            <option>Property Management Company</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div id="otherWrap" class="md:col-span-1 hidden">
+          <label class="block text-sm font-medium mb-1">Please specify</label>
+          <input id="otherInput" name="business_type_other" type="text" placeholder="e.g., School district"
+                 class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+
+        <!-- Details -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">What do you need help with?</label>
+          <textarea name="message" rows="4" placeholder="Recurring maintenance, cleanup, turf, irrigation, etc."
+                    class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+        </div>
+
+        <!-- Honeypot (spam protection) -->
+        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off"/>
+
+        <!-- Optional subject + redirect (Formspree features) -->
+        <input type="hidden" name="_subject" value="New Commercial Services Inquiry"/>
+        <!-- If you want a hard redirect instead of inline success, uncomment: -->
+        <!-- <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you-commercial.html" /> -->
+
+        <!-- Submit -->
+        <div class="md:col-span-2">
+          <button type="submit"
+                  class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-green-400 text-black font-semibold px-6 py-3 hover:bg-green-500 transition">
+            Request A Quote
+          </button>
+          <p class="mt-2 text-xs text-gray-500">By submitting, you agree to be contacted about your request.</p>
+        </div>
+      </form>
+
+      <!-- Success state (hidden by default) -->
+      <div id="successState" class="hidden text-center py-8">
+        <div class="mx-auto w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
+          <svg class="w-7 h-7 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h3 class="mt-4 text-xl font-semibold">Thanks! We’ve received your request.</h3>
+        <p class="mt-1 text-gray-600">A team member will reach out within one business day.</p>
+        <div class="mt-6">
+          <a href="/" class="inline-flex items-center rounded-xl border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50">Back to Home</a>
+          <a href="tel:1-310-528-6134" class="ml-2 inline-flex items-center rounded-xl bg-green-600 text-white px-4 py-2 text-sm hover:bg-green-700">Call Us Now</a>
+        </div>
+      </div>
+
+      <!-- Error state -->
+      <div id="errorState" class="hidden mt-4 rounded-lg bg-red-50 border border-red-200 p-4 text-red-700 text-sm">
+        Something went wrong sending your request. Please try again, or email us at <a href="mailto:hello@gogreenspark.com" class="underline">hello@gogreenspark.com</a>.
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-gray-600 flex items-center justify-between">
+      <span>© <span id="year"></span> GreenSpark</span>
+      <a class="text-green-700 font-medium" href="tel:1-310-528-6134">Call 1-310-528-6134</a>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Show "Other" input when needed
+    const bizType = document.getElementById('bizType');
+    const otherWrap = document.getElementById('otherWrap');
+    const otherInput = document.getElementById('otherInput');
+    bizType.addEventListener('change', () => {
+      const isOther = bizType.value === 'Other';
+      otherWrap.classList.toggle('hidden', !isOther);
+      otherInput.required = isOther;
+      if (!isOther) otherInput.value = '';
+    });
+
+    // AJAX submit to Formspree for inline success state
+    const form = document.getElementById('commercialForm');
+    const success = document.getElementById('successState');
+    const errorBox = document.getElementById('errorState');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.add('hidden');
+
+      const endpoint = form.getAttribute('action');
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+
+        if (res.ok) {
+          // Hide form, show success
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        } else {
+          // Formspree returns JSON with errors sometimes
+          errorBox.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorBox.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
