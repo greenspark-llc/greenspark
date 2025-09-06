@@ -302,94 +302,103 @@
     </div>
   </section>
 
-  <!-- ===== Reviews Slider ===== -->
-  <section class="bg-black py-12 px-4 md:px-20 overflow-hidden">
-    <div class="relative max-w-7xl mx-auto overflow-hidden">
-      <div id="reviewSlides" class="flex transition-transform duration-700 ease-in-out">
-        <!-- Slide 1 -->
-        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">Before</p>
-            <img src="IMG_7759.jpeg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">After</p>
-            <img src="IMG_7758.jpeg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col justify-center px-4 text-white">
-            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
-            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
-            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
-          </div>
-        </div>
+  <!-- ===== Reviews Slider (Stitched Layout) ===== -->
+<section class="bg-black py-12 px-4 md:px-20 overflow-hidden">
+  <div class="relative max-w-7xl mx-auto overflow-hidden">
+    <div id="reviewSlides" class="flex transition-transform duration-700 ease-in-out">
 
-        <!-- Slide 2 -->
-        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">Before</p>
-            <img src="before2.jpg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">After</p>
-            <img src="after2.jpg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col justify-center px-4 text-white">
-            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
-            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
-            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
-          </div>
+      <!-- Slide 1 -->
+      <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- Stitched image -->
+        <div class="flex justify-center">
+          <img src="stitch1.png" alt="Before and after lawn project" class="rounded-xl shadow-lg max-h-[420px] object-cover">
         </div>
+        <!-- Testimonial -->
+        <div class="text-white">
+          <p class="text-lg md:text-xl italic mb-6">
+            “GreenSpark transformed our yard—it’s quiet, clean, and my weekends are back!”
+          </p>
+          <p class="font-semibold text-base mb-2">— Amanda R., Austin, TX</p>
+          <p class="text-yellow-300 text-2xl mb-6">★★★★★</p>
+          <a href="/GetPricing.html"
+             class="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition">
+            Get Started →
+          </a>
+        </div>
+      </div>
 
-        <!-- Slide 3 -->
-        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">Before</p>
-            <img src="before3.jpg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <p class="text-sm text-white mb-2">After</p>
-            <img src="after3.jpg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-          </div>
-          <div class="flex flex-col justify-center px-4 text-white">
-            <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
-            <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
-            <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
-          </div>
+      <!-- Slide 2 -->
+      <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="flex justify-center">
+          <img src="stitch2.png" alt="Before and after turf install" class="rounded-xl shadow-lg max-h-[420px] object-cover">
         </div>
+        <div class="text-white">
+          <p class="text-lg md:text-xl italic mb-6">
+            “The team was professional and fast. Our lawn looks incredible and there’s zero noise.”
+          </p>
+          <p class="font-semibold text-base mb-2">— Miguel S., Los Angeles, CA</p>
+          <p class="text-yellow-300 text-2xl mb-6">★★★★★</p>
+          <a href="/GetPricing.html"
+             class="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition">
+            See Your Price →
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="flex justify-center">
+          <img src="stitch3.png" alt="Before and after cleanup" class="rounded-xl shadow-lg max-h-[420px] object-cover">
+        </div>
+        <div class="text-white">
+          <p class="text-lg md:text-xl italic mb-6">
+            “From estimate to finish—super smooth. The backyard finally matches the house.”
+          </p>
+          <p class="font-semibold text-base mb-2">— Priya K., Santa Monica, CA</p>
+          <p class="text-yellow-300 text-2xl mb-6">★★★★★</p>
+          <a href="/GetPricing.html"
+             class="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition">
+            Get Started →
+          </a>
+        </div>
+      </div>
 
       <!-- Slide 4 -->
-      <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="flex flex-col items-center text-center">
-          <p class="text-sm text-white mb-2">Before</p>
-          <img src="before4.jpeg" alt="Before" class="w-full object-contain max-h-[300px] rounded-md shadow" />
+      <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="flex justify-center">
+          <img src="stitch4.png" alt="Before and after front yard" class="rounded-xl shadow-lg max-h-[420px] object-cover">
         </div>
-        <div class="flex flex-col items-center text-center">
-          <p class="text-sm text-white mb-2">After</p>
-          <img src="after4.jpeg" alt="After" class="w-full object-contain max-h-[300px] rounded-md shadow" />
-        </div>
-        <div class="flex flex-col justify-center px-4 text-white">
-          <p class="text-lg italic mb-2">“GreenSpark transformed our yard—it's quiet, clean, and my weekends are back!”</p>
-          <p class="font-semibold text-base">— Amanda R., Austin, TX</p>
-          <p class="text-yellow-300 text-xl mt-1">★★★★★</p>
+        <div class="text-white">
+          <p class="text-lg md:text-xl italic mb-6">
+            “Quiet equipment, meticulous work, and a super friendly crew. Highly recommend.”
+          </p>
+          <p class="font-semibold text-base mb-2">— Jordan P., Venice, CA</p>
+          <p class="text-yellow-300 text-2xl mb-6">★★★★★</p>
+          <a href="/GetPricing.html"
+             class="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition">
+            Free Quote →
+          </a>
         </div>
       </div>
+
     </div>
 
-      <!-- Arrows -->
-      <div class="flex justify-center mt-10 gap-4">
-        <button onclick="goToPreviousSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button onclick="goToNextSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
+    <!-- Arrows -->
+    <div class="flex justify-center mt-10 gap-4">
+      <button onclick="goToPreviousSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button onclick="goToNextSlide()" class="p-3 bg-white rounded-full shadow hover:bg-green-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Slider JS -->
   <script>
