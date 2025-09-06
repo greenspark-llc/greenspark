@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You | GreenSpark</title>
+  <meta name="description" content="Thanks for contacting GreenSpark. We’ll get back to you within 1–2 business days." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { 
+      --safe-top: env(safe-area-inset-top); 
+      --safe-bottom: env(safe-area-inset-bottom);
+      --safe-left: env(safe-area-inset-left);
+      --safe-right: env(safe-area-inset-right);
+    }
+    /* smooth fade-in */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-green-50 to-white text-gray-900 antialiased">
+  <main class="relative flex items-center justify-center min-h-screen p-4" style="padding-top: calc(1rem + var(--safe-top)); padding-bottom: calc(1rem + var(--safe-bottom)); padding-left: calc(1rem + var(--safe-left)); padding-right: calc(1rem + var(--safe-right));">
+    <div class="w-full max-w-2xl bg-white/90 backdrop-blur rounded-2xl shadow-xl border border-green-100 p-8 md:p-10 animate-[fadeInUp_.5s_ease-out]">
+      <!-- Brand -->
+      <div class="flex items-center justify-between mb-6">
+        <a href="/" class="text-2xl font-semibold text-green-600">
+          Green<span class="text-green-500">Spark</span>
+        </a>
+        <span class="text-xs text-gray-500">Ref: contact</span>
+      </div>
+
+      <!-- Checkmark + Title -->
+      <div class="flex items-center gap-4">
+        <div class="shrink-0 w-12 h-12 rounded-full bg-green-500/10 border border-green-200 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6 text-green-600"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-semibold">Thanks! We’ve got your request.</h1>
+          <p class="text-gray-600 mt-1">Our team will reply within <strong>1–2 business days</strong>. If it’s urgent, call us and we’ll try to help right away.</p>
+        </div>
+      </div>
+
+      <!-- Next steps / Info -->
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-xl border border-gray-200 p-4">
+          <h2 class="font-medium mb-1">What happens next?</h2>
+          <p class="text-sm text-gray-600">We’ll review your message and reach out via the email or phone number you provided. Keep an eye on your inbox (and spam folder just in case).</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-4">
+          <h2 class="font-medium mb-1">Need something sooner?</h2>
+          <p class="text-sm text-gray-600">Give us a call or text and mention you submitted the website form.</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        <a href="/" class="inline-flex items-center justify-center rounded-full bg-green-400 hover:bg-green-500 text-black font-semibold py-3 px-6">Back to Home</a>
+        <a href="/GetPricing.html" class="inline-flex items-center justify-center rounded-full border border-green-600 text-green-700 hover:bg-green-50 font-semibold py-3 px-6">Get My Price</a>
+      </div>
+
+      <!-- Quick contact row -->
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+        <a href="tel:1-310-528-6134" class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h1.28a2 2 0 011.94 1.515l.57 2.28a2 2 0 01-.45 1.86l-1.2 1.2a16 16 0 006.4 6.4l1.2-1.2a2 2 0 011.86-.45l2.28.57A2 2 0 0121 18.72V20a2 2 0 01-2 2h-.25C9.268 22 2 14.732 2 6.25V6a2 2 0 011-1z"/></svg>
+          Call: 1‑310‑528‑6134
+        </a>
+        <a href="sms:+13105286134" class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.78L3 20l.82-3.28A7.6 7.6 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          Text Us
+        </a>
+      </div>
+
+      <!-- Small print -->
+      <p class="mt-6 text-xs text-gray-500">If you believe you reached this page by mistake, please <a href="/contact.html" class="underline hover:text-gray-700">return to the contact form</a> and try again.</p>
+    </div>
+
+    <!-- Optional auto-redirect (disabled by default). Set enableRedirect = true to activate. -->
+    <script>
+      (function(){
+        const enableRedirect = false; // change to true to enable
+        const target = '/';           // where to send the user (e.g., '/GetPricing.html')
+        const delayMs = 8000;         // 8s
+        if (!enableRedirect) return;
+        setTimeout(() => { window.location.assign(target); }, delayMs);
+      })();
+    </script>
+  </main>
+</body>
+</html>
