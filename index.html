@@ -100,6 +100,55 @@
   <!-- Push content below fixed header (matches h-14 / h-16) -->
   <div class="pt-[3.5rem] md:pt-16"></div>
 
+  <!-- ===== Mobile Hero (NEW) ===== -->
+<section class="relative block md:hidden h-[80vh]">
+  <!-- Background image -->
+  <img
+    src="realistic photo.png"
+    alt="Quiet, clean, electric lawn care by GreenSpark"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <!-- Dark gradient to ensure text contrast -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/10"></div>
+
+  <!-- Top-right reviews pill (optional) -->
+  <a
+    href="https://www.google.com/search?sca_esv=ae17101597266434&sxsrf=AE3TifNtv9ajWxQrvaJCwfI67Rz7rn4Tjg:1752278371786&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-qBBTgI6LZ2_KFwG6wNPSlMHaEAx7gSEUfTV9g-1xiS2A9IUkswtaJ1M_0y4ZhcDyyX9p54ztGRPyIEKvxNvEb_wTYJ&q=GreenSpark+Reviews&sa=X&ved=2ahUKEwjFoJfPgbaOAxXvJkQIHftADnQQ0bkNegQIIBAD"
+    target="_blank" rel="noopener noreferrer"
+    class="absolute right-4 top-4 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full shadow text-white text-xs font-medium flex items-center gap-2"
+  >
+    <span class="text-yellow-300">★★★★★</span>
+    <span>1,000+ reviews</span>
+  </a>
+
+  <!-- Copy + CTA -->
+  <div class="absolute inset-x-0 bottom-0 p-5 pb-7">
+    <h1 class="text-white text-4xl leading-tight font-semibold drop-shadow-sm">
+      Quiet, Clean, & Green Lawn Care
+    </h1>
+    <p class="text-white/90 mt-2 text-base">
+      Luxury lawns without the noise or fumes.
+    </p>
+
+    <div class="mt-5 flex flex-col gap-3">
+      <a href="/GetPricing.html"
+         class="inline-flex items-center justify-center bg-green-400 hover:bg-green-500 text-black font-semibold text-base px-5 py-3 rounded-full shadow-lg">
+        SEE MY PRICE →
+      </a>
+      <!-- Secondary action (optional) -->
+      <a href="tel:1-310-528-6134"
+         class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/30 font-medium text-sm px-5 py-2.5 rounded-full">
+        Or Call 1-310-528-6134
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Desktop Hero + Banner (UNCHANGED) ===== -->
+<div class="hidden md:block">
   <!-- ===== Hero Section ===== -->
   <section class="text-left py-20 px-4 md:px-20">
     <h1 class="text-5xl md:text-6xl font-light text-green-600 leading-snug">
@@ -135,7 +184,8 @@
       <span class="text-yellow-300 text-base">★★★★★</span>
     </a>
   </section>
-  <!-- (Removed the three stray </div></div></section> that were here) -->
+</div>
+
 
   <!-- ===== How It Works ===== -->
   <section class="py-16 bg-white">
