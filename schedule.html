@@ -13,9 +13,8 @@
 <body class="bg-white font-sans overflow-x-hidden">
   <!-- ===== Fixed Header (Responsive) ===== -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b">
-    <!-- spacing of buttons from edges -->
     <div class="w-full px-3 sm:px-4 lg:px-5 [padding-left:env(safe-area-inset-left)] [padding-right:env(safe-area-inset-right)]">
-        <div class="h-14 md:h-16 flex items-center justify-between overflow-x-clip" style="padding-top: var(--safe-top)">
+      <div class="h-14 md:h-16 flex items-center justify-between overflow-x-clip" style="padding-top: var(--safe-top)">
         <!-- Brand -->
         <a href="/" class="text-2xl md:text-3xl font-semibold text-green-600 hover:opacity-90 transition">
           Green<span class="text-green-500">Spark</span>
@@ -59,7 +58,7 @@
     <div class="max-w-7xl mx-auto">
       <!-- Progress / Back -->
       <div class="mb-6 flex items-center justify-between">
-        <a href="/GetPricing.html" class="inline-flex items-center gap-2 text-green-700 hover:underline">
+        <a id="backToPackages" href="quote.html" class="inline-flex items-center gap-2 text-green-700 hover:underline">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
@@ -77,117 +76,116 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left: Form -->
         <section class="lg:col-span-2">
-            <form id="scheduleForm"
-            action="https://formspree.io/f/mdklpqpn"
-            method="POST"
-            class="bg-white rounded-2xl border p-6 space-y-6">
-      
-        <!-- Formspree meta -->
-        <input type="hidden" name="_subject" value="New scheduling request – GreenSpark">
-        <input type="text"   name="_gotcha"  class="hidden" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_next"    value="/thank-you.html">
-      
-        <!-- Selection snapshot (filled by JS) -->
-        <input type="hidden" name="selected_package">
-        <input type="hidden" name="selected_frequency">
-        <input type="hidden" name="selected_tier">
-        <input type="hidden" name="selection_json">
-      
-        <!-- Quote numbers (filled by JS) -->
-        <input type="hidden" name="base_price">
-        <input type="hidden" name="addons_per_visit">
-        <input type="hidden" name="first_visit_fee" value="10">
-        <input type="hidden" name="first_visit_estimate">
-        <input type="hidden" name="monthly_estimate">
-      
-        <!-- Package Summary (compact on mobile) -->
-        <div class="bg-green-50 rounded-xl p-4">
-          <p class="text-sm text-gray-600">Selected:</p>
-          <div class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span id="summaryPackage" class="font-semibold text-green-700">—</span>
-            <span id="summaryFrequency" class="text-sm text-gray-700">—</span>
-            <span class="text-gray-300">•</span>
-            <span id="summaryTier" class="text-sm text-gray-700">—</span>
-          </div>
-        </div>
-      
-        <!-- Contact -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm mb-1">Full Name</label>
-            <input required name="name" class="w-full border rounded-lg px-3 py-2" placeholder="First & Last Name" />
-          </div>
-          <div>
-            <label class="block text-sm mb-1">Phone</label>
-            <input required name="phone" type="tel" class="w-full border rounded-lg px-3 py-2" placeholder="(555) 123-4567" />
-          </div>
-          <div>
-            <label class="block text-sm mb-1">Email</label>
-            <input required name="email" type="email" class="w-full border rounded-lg px-3 py-2" placeholder="you@example.com" />
-          </div>
-          <div>
-            <label class="block text-sm mb-1">ZIP</label>
-            <input id="zipInput" name="zip" class="w-full border rounded-lg px-3 py-2" placeholder="90210" />
-          </div>
-        </div>
-      
-        <!-- Address -->
-        <div>
-          <label class="block text-sm mb-1">Service Address</label>
-          <input required name="address" class="w-full border rounded-lg px-3 py-2" placeholder="Street, City, State" />
-        </div>
-      
-        <!-- Date & Time -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm mb-1">Preferred Date</label>
-            <input required id="dateInput" name="date" type="date" class="w-full border rounded-lg px-3 py-2" />
-            <p class="text-xs text-gray-500 mt-1">Mon–Sat availability</p>
-          </div>
-          <div>
-            <label class="block text-sm mb-1">Time Window</label>
-            <select required id="timeWindow" name="timeWindow" class="w-full border rounded-lg px-3 py-2">
-              <option value="">Select…</option>
-              <option value="8–10am">8–10am</option>
-              <option value="10am–12pm">10am–12pm</option>
-              <option value="12–2pm">12–2pm</option>
-              <option value="2–4pm">2–4pm</option>
-              <option value="4–6pm">4–6pm</option>
-            </select>
-          </div>
-        </div>
-      
-        <!-- Extras (optional) -->
-        <div>
-          <label class="block text-sm mb-2">Optional Add-Ons</label>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <label class="flex items-center gap-3 border rounded-lg p-3">
-              <input type="checkbox" class="accent-green-600" name="addons" value="petWaste" />
-              <span class="text-sm">Pet waste pickup (+$8/visit)</span>
-            </label>
-            <label class="flex items-center gap-3 border rounded-lg p-3">
-              <input type="checkbox" class="accent-green-600" name="addons" value="bagHaul" />
-              <span class="text-sm">Green-waste haul (+$12/visit)</span>
-            </label>
-          </div>
-        </div>
-      
-        <div>
-          <label class="block text-sm mb-1">Notes for Your Crew (optional)</label>
-          <textarea name="notes" class="w-full border rounded-lg px-3 py-2" rows="3" placeholder="Gate code, pets, parking, special requests…"></textarea>
-        </div>
-      
-        <!-- Submit -->
-        <button class="w-full bg-green-400 hover:bg-green-500 text-black rounded-full py-3 font-medium">
-          Request My Visit & Quote
-        </button>
-      
-        <!-- (Note: with _next set, this message won't be seen after submit) -->
-        <p id="successMsg" class="hidden text-green-700 bg-green-50 border border-green-200 rounded-xl p-4 text-sm">
-          Thanks! We’ve received your request. A confirmation will be sent to your email and phone shortly.
-        </p>
-      </form>
-      
+          <form id="scheduleForm"
+                action="https://formspree.io/f/mdklpqpn"
+                method="POST"
+                class="bg-white rounded-2xl border p-6 space-y-6">
+            <!-- Formspree meta -->
+            <input type="hidden" name="_subject" value="New scheduling request – GreenSpark">
+            <input type="text"   name="_gotcha"  class="hidden" tabindex="-1" autocomplete="off">
+            <!-- _next becomes absolute on submit -->
+            <input type="hidden" name="_next" value="thank-you.html">
+
+            <!-- Selection snapshot (filled by JS) -->
+            <input type="hidden" name="selected_package">
+            <input type="hidden" name="selected_frequency">
+            <input type="hidden" name="selected_tier">
+            <input type="hidden" name="selection_json">
+
+            <!-- Quote numbers (filled by JS) -->
+            <input type="hidden" name="base_price">
+            <input type="hidden" name="addons_per_visit">
+            <input type="hidden" name="first_visit_fee" value="10">
+            <input type="hidden" name="first_visit_estimate">
+            <input type="hidden" name="monthly_estimate">
+
+            <!-- Package Summary (compact on mobile) -->
+            <div class="bg-green-50 rounded-xl p-4">
+              <p class="text-sm text-gray-600">Selected:</p>
+              <div class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <span id="summaryPackage" class="font-semibold text-green-700">—</span>
+                <span id="summaryFrequency" class="text-sm text-gray-700">—</span>
+                <span class="text-gray-300">•</span>
+                <span id="summaryTier" class="text-sm text-gray-700">—</span>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-1">Full Name</label>
+                <input required name="name" class="w-full border rounded-lg px-3 py-2" placeholder="First & Last Name" />
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Phone</label>
+                <input required name="phone" type="tel" class="w-full border rounded-lg px-3 py-2" placeholder="(555) 123-4567" />
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Email</label>
+                <input required name="email" type="email" class="w-full border rounded-lg px-3 py-2" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label class="block text-sm mb-1">ZIP</label>
+                <input id="zipInput" name="zip" class="w-full border rounded-lg px-3 py-2" placeholder="90210" />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div>
+              <label class="block text-sm mb-1">Service Address</label>
+              <input required name="address" class="w-full border rounded-lg px-3 py-2" placeholder="Street, City, State" />
+            </div>
+
+            <!-- Date & Time -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-1">Preferred Date</label>
+                <input required id="dateInput" name="date" type="date" class="w-full border rounded-lg px-3 py-2" />
+                <p class="text-xs text-gray-500 mt-1">Mon–Sat availability</p>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Time Window</label>
+                <select required id="timeWindow" name="timeWindow" class="w-full border rounded-lg px-3 py-2">
+                  <option value="">Select…</option>
+                  <option value="8–10am">8–10am</option>
+                  <option value="10am–12pm">10am–12pm</option>
+                  <option value="12–2pm">12–2pm</option>
+                  <option value="2–4pm">2–4pm</option>
+                  <option value="4–6pm">4–6pm</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Extras (optional) -->
+            <div>
+              <label class="block text-sm mb-2">Optional Add-Ons</label>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 border rounded-lg p-3">
+                  <input type="checkbox" class="accent-green-600" name="addons" value="petWaste" />
+                  <span class="text-sm">Pet waste pickup (+$8/visit)</span>
+                </label>
+                <label class="flex items-center gap-3 border rounded-lg p-3">
+                  <input type="checkbox" class="accent-green-600" name="addons" value="bagHaul" />
+                  <span class="text-sm">Green-waste haul (+$12/visit)</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm mb-1">Notes for Your Crew (optional)</label>
+              <textarea name="notes" class="w-full border rounded-lg px-3 py-2" rows="3" placeholder="Gate code, pets, parking, special requests…"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button class="w-full bg-green-400 hover:bg-green-500 text-black rounded-full py-3 font-medium">
+              Request My Visit & Quote
+            </button>
+
+            <!-- (Note: with _next set, this message won't be seen after submit) -->
+            <p id="successMsg" class="hidden text-green-700 bg-green-50 border border-green-200 rounded-xl p-4 text-sm">
+              Thanks! We’ve received your request. A confirmation will be sent to your email and phone shortly.
+            </p>
+          </form>
         </section>
 
         <!-- Right: Quote Summary -->
@@ -238,41 +236,90 @@
     document.getElementById("menuBtn")?.addEventListener("click", () => {
       document.getElementById("mobileNav").classList.toggle("hidden");
     });
-  
-    // Pull selection from localStorage
-    const sel = JSON.parse(localStorage.getItem("greenspark_selection") || "null");
-  
-    // Guard: if missing selection, send back
-    if (!sel) {
-      window.location.href = "/GetPricing.html";
-    }
-  
-    // Pre-fill ZIP from query string (if present)
-    const qsZip = new URLSearchParams(window.location.search).get('zip');
-    if (qsZip) document.getElementById("zipInput")?.value = qsZip;
-  
-    // Summary labels
+
+    // ---------------------------
+    // State hydration & utilities
+    // ---------------------------
     const pkgMap = {
       "eco-essentials": "Eco-Essentials",
       "eco-care": "Eco-Care",
       "eco-supreme": "Eco-Supreme"
     };
-  
-    // Frequency → multiplier for monthly estimate
-    const monthlyFactor = (freq) => freq === "weekly" ? 4.3 : 2.15;
-  
-    // Add-on prices
+    const monthlyFactor = (freq) => (freq === "weekly" ? 4.3 : 2.15);
     const ADDON_PRICES = { petWaste: 8, bagHaul: 12 };
     const FIRST_VISIT_FEE = 10;
-  
-    // Populate summary section
+
+    const qs = new URLSearchParams(location.search);
+    const qsZip = qs.get("zip");
+    const qsPkg = qs.get("pkg");
+    const qsFreq = qs.get("freq");
+    const qsTier = qs.get("tier");
+    const qsBase = qs.get("base");
+
+    // Pull selection from localStorage (if any)
+    let sel = {};
+    try { sel = JSON.parse(localStorage.getItem("greenspark_selection") || "{}"); } catch (_) {}
+
+    // Merge URL params into selection (fallback when navigating directly or via links)
+    if (qsPkg) sel.package = qsPkg;
+    if (qsFreq) sel.frequency = qsFreq;
+    if (qsTier) sel.tier = qsTier;
+    if (qsBase && !isNaN(Number(qsBase))) sel.basePrice = Number(qsBase);
+
+    // Persist merged selection back (so all pages stay in sync)
+    localStorage.setItem("greenspark_selection", JSON.stringify(sel));
+
+    // Guard: must have at least a package + base price to quote meaningfully
+    if (!sel || !sel.package || !sel.basePrice) {
+      // If we truly can't compute, kick back to GetPricing to re-select with ZIP context
+      location.href = "/GetPricing.html";
+    }
+
+    // ZIP hydration precedence: query > localStorage > selection payload
+    const storedZip = localStorage.getItem("greenspark_zip");
+    const zipInput = document.getElementById("zipInput");
+    const resolvedZip = qsZip || storedZip || sel.zip || "";
+    if (zipInput && resolvedZip) {
+      zipInput.value = resolvedZip;
+      localStorage.setItem("greenspark_zip", resolvedZip);
+      sel.zip = resolvedZip;
+      localStorage.setItem("greenspark_selection", JSON.stringify(sel));
+    }
+    // Keep ZIP sticky if user edits here
+    zipInput?.addEventListener("input", (e) => {
+      const z = (e.target.value || "").trim();
+      localStorage.setItem("greenspark_zip", z);
+      sel.zip = z;
+      localStorage.setItem("greenspark_selection", JSON.stringify(sel));
+    });
+
+    // Back to Packages — preserve state
+    document.getElementById("backToPackages")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const cameFromQuote = document.referrer && /quote\.html/i.test(document.referrer);
+      if (cameFromQuote) {
+        history.back();
+        return;
+      }
+      // Fallback: rebuild a stateful link to quote.html
+      const params = new URLSearchParams({
+        zip: sel.zip || "",
+        pkg: sel.package || "",
+        freq: sel.frequency || "",
+        tier: sel.tier || "",
+        base: String(sel.basePrice || "")
+      });
+      location.href = `quote.html?${params.toString()}`;
+    });
+
+    // Summary labels
     const pkgLabel = pkgMap[sel.package] || sel.package || "—";
     document.getElementById("summaryPackage").textContent = pkgLabel;
     document.getElementById("summaryFrequency").textContent =
       (sel.frequency || "—").replace(/^./, c => c.toUpperCase());
     document.getElementById("summaryTier").textContent =
       sel.tier ? `${sel.tier.charAt(0).toUpperCase() + sel.tier.slice(1)} tier` : "Standard";
-  
+
     // Quote box initial fill
     document.getElementById("qPackage").textContent = pkgLabel;
     document.getElementById("qFrequency").textContent =
@@ -280,8 +327,8 @@
     document.getElementById("qBase").textContent =
       sel.basePrice ? `$${Number(sel.basePrice).toFixed(0)}` : "—";
     document.getElementById("qFirstFee").textContent = `$${FIRST_VISIT_FEE}`;
-  
-    // Date constraints: min today+1, max 60 days
+
+    // Date constraints: min today+1, max 60 days; block Sundays
     const dateInput = document.getElementById("dateInput");
     const tzOffsetMs = new Date().getTimezoneOffset() * 60 * 1000;
     const todayLocal = new Date(Date.now() - tzOffsetMs);
@@ -289,8 +336,6 @@
     const max = new Date(todayLocal); max.setDate(max.getDate() + 60);
     dateInput.min = min.toISOString().slice(0,10);
     dateInput.max = max.toISOString().slice(0,10);
-  
-    // Disallow Sundays by validating on change (Mon–Sat only)
     dateInput.addEventListener("change", (e) => {
       const d = new Date(e.target.value + "T00:00:00");
       if (d.getDay() === 0) {
@@ -298,7 +343,7 @@
         e.target.value = "";
       }
     });
-  
+
     function calcAddonsTotal() {
       const boxes = Array.from(document.querySelectorAll('input[name="addons"]:checked'));
       const total = boxes.reduce((sum, b) => sum + (ADDON_PRICES[b.value] || 0), 0);
@@ -306,25 +351,25 @@
       if (el) el.textContent = `$${total}`;
       return total;
     }
-  
+
     // Fill hidden inputs for Formspree before submit (and whenever quote changes)
     function updateHiddenFields() {
       const base = Number(sel.basePrice || 0);
       const addOns = calcAddonsTotal();
       const firstVisit = base + addOns + FIRST_VISIT_FEE;
       const monthly = (base + addOns) * monthlyFactor(sel.frequency || "weekly");
-  
+
       const setVal = (name, val) => {
         const input = document.querySelector(`input[name="${name}"]`);
         if (input) input.value = String(val ?? "");
       };
-  
+
       // Selection snapshot
       setVal("selected_package", pkgLabel);
       setVal("selected_frequency", (sel.frequency || "").replace(/^./, c => c.toUpperCase()));
       setVal("selected_tier", sel.tier ? sel.tier.charAt(0).toUpperCase() + sel.tier.slice(1) : "Standard");
       setVal("selection_json", JSON.stringify(sel));
-  
+
       // Quote numbers
       setVal("base_price", base.toFixed(0));
       setVal("addons_per_visit", addOns.toFixed(0));
@@ -332,46 +377,49 @@
       setVal("first_visit_estimate", firstVisit.toFixed(0));
       setVal("monthly_estimate", monthly.toFixed(0));
     }
-  
+
     // Recalculate quote UI + sync hidden fields
     function refreshQuote() {
       const base = Number(sel.basePrice || 0);
       const addOns = calcAddonsTotal();
       const firstVisit = base + addOns + FIRST_VISIT_FEE;
       const monthly = (base + addOns) * monthlyFactor(sel.frequency || "weekly");
-  
+
       document.getElementById("qFirstVisit").textContent = `$${firstVisit.toFixed(0)}`;
       document.getElementById("qMonthly").textContent = `$${monthly.toFixed(0)}`;
-  
+
       updateHiddenFields();
     }
-  
+
     // Add-on change listeners
     document.querySelectorAll('input[name="addons"]').forEach(i => {
       i.addEventListener("change", refreshQuote);
     });
-  
+
     // Initial quote + hidden fields
     refreshQuote();
-  
-    // Submit: fill hidden fields, then allow normal POST to Formspree
+
+    // Submit: make _next absolute, sync hidden, then let browser POST normally
     document.getElementById("scheduleForm").addEventListener("submit", () => {
+      const nextInput = document.querySelector('input[name="_next"]');
+      if (nextInput) nextInput.value = `${location.origin}/thank-you.html`;
       updateHiddenFields();
-      // No preventDefault -> browser posts to Formspree, then _next redirects to thank-you page
+      // No preventDefault -> Formspree handles and redirects to absolute thank-you
     });
   </script>
+
   <script>
     // Hamburger → drawer toggle
     (function () {
       const btn = document.getElementById('menuBtn');
       const nav = document.getElementById('mobileNav');
       if (!btn || !nav) return;
-  
+
       btn.addEventListener('click', () => {
         nav.classList.toggle('hidden');
         document.body.classList.toggle('overflow-hidden'); // prevent scroll when open (optional)
       });
-  
+
       // Close when a link is tapped (optional)
       nav.querySelectorAll('a').forEach(a =>
         a.addEventListener('click', () => {
@@ -381,7 +429,5 @@
       );
     })();
   </script>
-  
-  
 </body>
 </html>
