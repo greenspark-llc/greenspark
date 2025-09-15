@@ -492,6 +492,7 @@
 
 
   <!-- Slider JS -->
+   
   <script>
     // mobile nav toggle
     const btn = document.getElementById('menuBtn');
@@ -519,6 +520,25 @@
     setInterval(goToNextSlide, 8000);
     window.addEventListener('resize', () => goToSlide(currentSlide));
   </script>
+  
+  <script>
+    // Services accordion in mobile drawer
+    (function () {
+      const triggers = document.querySelectorAll('[data-accordion-trigger]');
+      triggers.forEach((t) => {
+        const panel = t.parentElement.querySelector('[data-accordion-panel]');
+        const icon = t.querySelector('svg');
+        t.addEventListener('click', () => {
+          const open = !panel.classList.contains('hidden');
+          panel.classList.toggle('hidden', open);
+          icon.style.transform = open ? '' : 'rotate(180deg)';
+          t.setAttribute('aria-expanded', String(!open));
+        });
+      });
+    })();
+  </script>
+
+
 
   <!-- ===== Premium Guarantee ===== -->
   <section id="guarantee" class="bg-white py-16 px-6 md:px-20 border-t border-gray-200">
