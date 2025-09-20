@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turf Installation | GreenSpark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    :root { --safe-top: env(safe-area-inset-top); }
+  </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+  <!-- ===== Fixed Header (Responsive) with Services ===== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b">
+    <div class="w-full px-3 sm:px-4 lg:px-5 [padding-left:env(safe-area-inset-left)] [padding-right:env(safe-area-inset-right)]">
+      <div class="h-14 md:h-16 flex items-center justify-between overflow-x-clip" style="padding-top: var(--safe-top)">
+  
+        <!-- Brand -->
+        <a href="/" class="text-2xl md:text-3xl font-semibold text-green-600 hover:opacity-90 transition">
+          Green<span class="text-green-500">Spark</span>
+        </a>
+  
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-2 text-base">
+          <a href="tel:1-310-528-6134" class="text-green-600 font-medium px-2">1-310-528-6134</a>
+  
+          <!-- Services (desktop dropdown) -->
+          <div class="relative group">
+            <button
+              class="inline-flex items-center gap-1 px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500"
+              aria-haspopup="true" aria-expanded="false">
+              Services
+              <svg class="h-4 w-4 text-gray-500 group-hover:rotate-180 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div
+              class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 transition-all
+                     absolute left-0 mt-2 w-72 rounded-2xl border bg-white shadow-lg p-2">
+              <a href="/services/turf" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Turf</a>
+              <a href="/services/landscape-design" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Landscape Design</a>
+              <a href="/services/sprinkler-installation" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Sprinkler Installation</a>
+              <a href="/services/seasonal-services" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Seasonal Services</a>
+              <a href="/services/sod-seeding" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Sod &amp; Seeding</a>
+              <a href="/services/lawn-maintenance" class="block px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800">Lawn Maintenance</a>
+            </div>
+          </div>
+  
+          <!-- Original buttons/links preserved -->
+          <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-600 hover:bg-green-50">Sign In</a>
+          <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-600 text-black px-4 py-2 rounded-full">Get Your Price</a>
+          <a href="commercial.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full">Commercial Services</a>
+          <a href="contact.html" class="px-4 py-2 bg-black rounded-full text-white hover:bg-green-400">Contact Us</a>
+        </nav>
+  
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-green-600 text-green-700">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Drawer -->
+    <div id="mobileNav" class="md:hidden hidden border-t bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3">
+  
+        <!-- Services (mobile accordion) -->
+        <div class="border rounded-xl">
+          <button
+            class="w-full flex items-center justify-between px-3 py-3 text-left rounded-xl"
+            data-accordion-trigger aria-expanded="false">
+            <span class="text-gray-900 font-medium">Services</span>
+            <svg class="h-5 w-5 text-gray-500 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          <div class="hidden pb-2" data-accordion-panel>
+            <a href="/services/turf" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Turf</a>
+            <a href="/services/landscape-design" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Landscape Design</a>
+            <a href="/services/sprinkler-installation" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Sprinkler Installation</a>
+            <a href="/services/seasonal-services" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Seasonal Services</a>
+            <a href="/services/sod-seeding" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Sod &amp; Seeding</a>
+            <a href="/services/lawn-maintenance" class="block px-4 py-2 rounded-lg hover:bg-gray-50">Lawn Maintenance</a>
+          </div>
+        </div>
+  
+        <!-- Original mobile links -->
+        <a href="tel:1-310-528-6134" class="text-green-700 font-medium">1-310-528-6134</a>
+        <a href="sign_in.html" class="px-4 py-2 border border-green-600 rounded-full text-green-700 text-center">Sign In</a>
+        <a href="/GetPricing.html" class="bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full text-center">Get Your Price</a>
+        <a href="commercial.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-center">Commercial Services</a>
+        <a href="contact.html" class="px-4 py-2 bg-black rounded-full text-white hover:bg-green-400 text-center">Contact Us</a>
+      </div>
+    </div>
+  </header>
+  <div class="pt-[3.5rem] md:pt-16"></div>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="relative bg-green-600 text-white">
+    <img src="hero1.png" alt="Beautiful lawn with turf installation"
+         class="absolute inset-0 w-full h-full object-cover opacity-70" />
+    <div class="relative max-w-6xl mx-auto px-6 py-20 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold drop-shadow-lg">Expert Turf Installation</h1>
+      <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+        Elevate your lawn with lush, low-maintenance turf backed by 30+ years of expertise and a 20-year guarantee.
+      </p>
+      <div class="mt-6 flex justify-center">
+        <a href="/GetPricing.html"
+           class="bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg">
+          Book Your Turf Installation →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why Turf Section ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Why Choose Turf?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Elevated Curb Appeal</h3>
+          <p class="text-sm text-gray-600">Always-green, perfectly manicured lawns that make your home or business stand out year-round.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Low Maintenance</h3>
+          <p class="text-sm text-gray-600">No mowing, watering, or fertilizing. Save time, money, and water while enjoying a perfect yard.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg mb-2">Durability Guaranteed</h3>
+          <p class="text-sm text-gray-600">Our turf is built to last, backed by a 20-year guarantee and decades of installation experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Packages Section ===== -->
+  <section class="py-16 bg-green-50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Turf Maintenance Packages</h2>
+      <p class="text-gray-700 max-w-2xl mx-auto mb-12">
+        We don’t just install turf—we help you maintain it, so it stays beautiful year after year. Choose a package that fits your needs.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Basic Care</h3>
+          <p class="text-gray-600 mb-4">Quarterly check-ups to ensure your turf remains fresh and clean.</p>
+          <p class="text-green-600 font-bold mb-6">$49/mo</p>
+          <a href="/GetPricing.html" class="block bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full font-medium">
+            Select Basic
+          </a>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition border-2 border-green-400">
+          <h3 class="font-semibold text-xl mb-2">Premium Care</h3>
+          <p class="text-gray-600 mb-4">Monthly deep cleaning, odor control, and infill touch-ups.</p>
+          <p class="text-green-600 font-bold mb-6">$89/mo</p>
+          <a href="/GetPricing.html" class="block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium">
+            Select Premium
+          </a>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Elite Care</h3>
+          <p class="text-gray-600 mb-4">Bi-weekly visits with full service including repairs & replacements under warranty.</p>
+          <p class="text-green-600 font-bold mb-6">$149/mo</p>
+          <a href="/GetPricing.html" class="block bg-green-400 hover:bg-green-500 text-black px-4 py-2 rounded-full font-medium">
+            Select Elite
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Portfolio Section ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Turf Transformations</h2>
+      <p class="text-gray-700 mb-10">See the difference GreenSpark makes. Every project is custom, durable, and guaranteed.</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Replace placeholders with your turf project images -->
+        <img src="turf1.jpg" alt="Turf project 1" class="rounded-xl shadow" />
+        <img src="turf2.jpg" alt="Turf project 2" class="rounded-xl shadow" />
+        <img src="turf3.jpg" alt="Turf project 3" class="rounded-xl shadow" />
+        <img src="turf4.jpg" alt="Turf project 4" class="rounded-xl shadow" />
+        <img src="turf5.jpg" alt="Turf project 5" class="rounded-xl shadow" />
+        <img src="turf6.jpg" alt="Turf project 6" class="rounded-xl shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-16 bg-green-600 text-white text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to Upgrade Your Lawn?</h2>
+    <p class="max-w-xl mx-auto mb-6">With 30+ years of experience and a 20-year turf guarantee, GreenSpark is your trusted partner for flawless turf installation.</p>
+    <a href="/GetPricing.html"
+       class="inline-block bg-green-400 hover:bg-green-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg">
+      Book Your Turf Installation Today →
+    </a>
+  </section>
+
+  <!-- ===== Footer (simplified) ===== -->
+  <footer class="py-6 bg-black text-white text-center text-sm">
+    © 2025 GreenSpark. All Rights Reserved.
+  </footer>
+
+  <script>
+    (function () {
+      const bar = document.getElementById('ctaBar');           // mobile
+      const spacer = document.getElementById('ctaSpacer');      // mobile
+      const closeBtn = document.getElementById('ctaClose');     // mobile
+  
+      const desk = document.getElementById('ctaDesk');          // desktop
+      const deskClose = document.getElementById('ctaDeskClose');
+  
+      const LS_KEY = 'gs_cta_dismissed_until_v2';
+      // DEV: add #showcta to URL to clear the timer and reveal immediately
+      if (location.hash === '#showcta') {
+        localStorage.removeItem(LS_KEY);
+        setTimeout(() => { showDesk(); }, 50);
+      }
+  
+  
+      function isDismissed() {
+        const until = localStorage.getItem(LS_KEY);
+        return until && Date.now() < Number(until);
+      }
+  
+      // ---- MOBILE (unchanged) ----
+      function showBar() {
+        bar?.classList.remove('translate-y-full','opacity-0','pointer-events-none');
+        bar?.classList.add('opacity-100');
+        spacer?.classList.add('md:h-0');
+      }
+      function hideBar() {
+        bar?.classList.add('translate-y-full','opacity-0','pointer-events-none');
+      }
+      let revealed = false;
+      function onScroll() {
+        if (revealed || isDismissed()) return;
+        if (window.scrollY > 240) { revealed = true; showBar(); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setTimeout(() => { if (!revealed && !isDismissed()) { revealed = true; showBar(); } }, 1800);
+      closeBtn?.addEventListener('click', () => {
+        const tenMinutes = 10 * 60 * 1000;
+        localStorage.setItem(LS_KEY, String(Date.now() + tenMinutes));
+        hideBar();
+        hideDesk(); // ensure both hide
+      });
+  
+      // ---- DESKTOP (new) ----
+      function showDesk() {
+        // only show on md+; Tailwind handles display via classes
+        desk?.classList.remove('opacity-0','pointer-events-none');
+        desk?.classList.add('opacity-100');
+      }
+      function hideDesk() {
+        desk?.classList.add('opacity-0','pointer-events-none');
+      }
+  
+      // reveal desktop pill after a small delay if not dismissed
+      setTimeout(() => {
+        if (!isDismissed()) showDesk();
+      }, 1400);
+  
+      // also reveal when user scrolls a bit on desktop
+      window.addEventListener('scroll', () => {
+        if (!isDismissed()) showDesk();
+      }, { passive: true });
+  
+      deskClose?.addEventListener('click', () => {
+        const tenMinutes = 10 * 60 * 1000;
+        localStorage.setItem(LS_KEY, String(Date.now() + tenMinutes));
+        hideDesk();
+        hideBar(); // hide mobile too
+      });
+    })();
+  </script>
+
+</body>
+</html>
