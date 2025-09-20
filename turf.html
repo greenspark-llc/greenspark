@@ -118,26 +118,75 @@
     </div>
   </section>
 
-  <!-- ===== Why Turf Section ===== -->
-  <section class="py-16 bg-white">
+  <!-- ===== Why Turf Section (with image cards) ===== -->
+<section class="py-16 bg-white" id="why-turf">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-10">Why Choose Turf?</h2>
+  
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-2">Elevated Curb Appeal</h3>
-          <p class="text-sm text-gray-600">Always-green, perfectly manicured lawns that make your home or business stand out year-round.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-2">Low Maintenance</h3>
-          <p class="text-sm text-gray-600">No mowing, watering, or fertilizing. Save time, money, and water while enjoying a perfect yard.</p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-2">Durability Guaranteed</h3>
-          <p class="text-sm text-gray-600">Our turf is built to last, backed by a 20-year guarantee and decades of installation experience.</p>
-        </div>
+        <!-- Card 1: Curb Appeal -->
+        <article class="group overflow-hidden rounded-2xl border bg-white shadow hover:shadow-lg transition">
+          <div class="relative h-48">
+            <!-- Replace src with your curbside photo -->
+            <img
+              src="turf-images/curb-appeal1.png"
+              alt="Beautiful modern home with lush curbside turf"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Elevated Curb Appeal</h3>
+            <p class="text-sm text-gray-600">
+              Always-green, perfectly manicured lawns that make your home or business stand out year-round.
+            </p>
+          </div>
+        </article>
+  
+        <!-- Card 2: Low Maintenance -->
+        <article class="group overflow-hidden rounded-2xl border bg-white shadow hover:shadow-lg transition">
+          <div class="relative h-48">
+            <!-- Replace src with a photo that conveys low-maintenance (e.g., homeowner relaxing by a turf yard) -->
+            <img
+              src="turf-images/low-maintenance.png"
+              alt="Low-maintenance turf yard—no mowing or watering"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Low Maintenance</h3>
+            <p class="text-sm text-gray-600">
+              No mowing, watering, or fertilizing. Save time, money, and water while enjoying a perfect yard.
+            </p>
+          </div>
+        </article>
+  
+        <!-- Card 3: Durability -->
+        <article class="group overflow-hidden rounded-2xl border bg-white shadow hover:shadow-lg transition">
+          <div class="relative h-48">
+            <!-- Replace src with a durability/close-up fiber shot or kids/pets playing on turf -->
+            <img
+              src="turf-images/durability.png"
+              alt="Durable turf built to last with heavy use"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Durability Guaranteed</h3>
+            <p class="text-sm text-gray-600">
+              Our turf is built to last, backed by a 20-year guarantee and decades of installation experience.
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+  
 
   <!-- ===== Packages Section ===== -->
   <section class="py-16 bg-green-50">
